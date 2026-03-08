@@ -18,16 +18,15 @@ const Register = () => {
         e.preventDefault();
         try {
             // Sending registration data to backend
-            await axios.post('http://localhost:5000/api/auth/register', formData);
-            alert("Registration Successful! Please Login.");
-            navigate('/login'); // Redirect to login page after success
+            // await axios.post('http://localhost:5000/api/auth/register', formData);
+            // alert("Registration Successful! Please Login.");
+            navigate('/Booking'); // Redirect to login page after success
         } catch (err) {
-            console.error(err);
+            // console.error(err);
     // Error check karne ka safe tareeka
-    const errorMsg = err.response && err.response.data && err.response.data.msg 
-                     ? err.response.data.msg 
-                     : "Registration Failed. Please try again.";
-    alert(errorMsg);
+    // const errorMsg = err.response?.data?.msg || "Registration Failed. Please try again.";
+    // alert(errorMsg);
+    navigate('/booking');
         }
     };
 
@@ -39,7 +38,7 @@ const Register = () => {
                     <form onSubmit={onSubmit}>
                         <div className="mb-3">
                             <label className="form-label">Full Name</label>
-                            <input type="text" name="name" className="form-control" onChange={onChange} required />
+                            <input type="text" name="name" value={formData.name} className="form-control" onChange={onChange} required />
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Email address</label>
@@ -51,7 +50,7 @@ const Register = () => {
                         </div>
                         <div className="mb-3">
                             <label className="form-label">I am a:</label>
-                            <select name="role" className="form-select" onChange={onChange}>
+                            <select name="role" value={formData.role} className="form-select" onChange={onChange}>
                                 <option value="rider">Rider (Customer)</option>
                                 <option value="driver">Driver</option>
                             </select>

@@ -7,9 +7,10 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Booking from './pages/Booking';
 import MyRides from './pages/MyRides';
-import Profile from './pages/Profile'; // Ye line add karo
+import Profile from './pages/Profile'; 
 import Payments from './pages/Payments';
 import Support from './pages/Support';
+import Notifications from './pages/Notifications';
 
 function App() {
   return (
@@ -21,19 +22,23 @@ function App() {
           <div className="navbar-nav ms-auto">
             <Link className="nav-link text-white" to="/login">Login</Link>
             <Link className="nav-link text-white" to="/register">Register</Link>
+            
           </div>
+          
         </nav>
 
         {/* Dynamic Content */}
-        <div className="container mt-3">
+        <div className="container-fluid p-0">
           <Routes>
             <Route path="/" element={<Login />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/rides" element={<MyRides />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/payments" element={<Payments />} />
             <Route path="/support" element={<Support />} />
+            <Route path="/notifications" element={<Notifications />} />
           </Routes>
         </div>
       </div>

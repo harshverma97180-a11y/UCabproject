@@ -8,11 +8,35 @@ const Payments = () => {
     return (
         <div style={containerStyle}>
             <aside style={sidebarStyle}>
-                <h1 style={logoStyle}>Ucab</h1>
+                {/* <h1 style={logoStyle}>Ucab</h1> */}
+                <div style={{ 
+    display: 'flex', 
+    alignItems: 'center', 
+    gap: '12px', 
+    marginBottom: '35px',
+    paddingLeft: '5px' 
+}}>
+    {/* Car logo on the left to match Booking page style */}
+    <img 
+        src="/modern-car.png" 
+        alt="Ucab Logo" 
+        style={{ width: '85px', height: 'auto' }} 
+    />
+    {/* Brand name displayed next to the logo */}
+    <h2 style={{ 
+        color: '#007bff', 
+        margin: 0, 
+        fontSize: '42px', 
+        fontWeight: 'bold' 
+    }}>
+        Ucab
+    </h2>
+</div>
                 <nav style={{ flex: 1 }}>
                     <div onClick={() => navigate('/profile')} style={navItemStyle}>👤 Profile</div>
                     <div onClick={() => navigate('/booking')} style={navItemStyle}>🚗 Book a Ride</div>
                     <div onClick={() => navigate('/payments')} style={activeNavItemStyle}>💳 Payments</div>
+                    <div onClick={() => navigate('/notifications')} style={navItemStyle}>🔔 Notifications</div>
                     <div onClick={() => navigate('/support')} style={navItemStyle}>⚙️ Support</div>
                 </nav>
             </aside>
